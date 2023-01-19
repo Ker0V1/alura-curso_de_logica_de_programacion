@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+
+<h1>
+    Juego de adivinacion
+</h1>
+
+<script>
+
+    function print(frase,salto = true) {
+        if (salto == true) {
+            document.write("<br>");
+            document.write(frase);
+            document.write("<br>");
+        } else {
+            document.write(frase);
+        }
+
+    }
+
+    function randInt(min,max) { // funcion para obtener un numero en el rango [min, max)
+        return Math.floor(Math.random() * (max - min) + min)
+    }
+
+   var numeroPensado = Math.round(Math.random()*10) // Math.random devuelve un numero en el rango [0,1) 
+   var numeroAdivinado = parseInt(prompt("Indique un numero entre 0 y 9"))
+
+   if (numeroAdivinado == numeroPensado) {
+    print("Adivinaste, felicidades!!")
+   } else {
+    print("ohhh, mala suerte, el numero era " + numeroPensado)
+   }
+   
+</script>

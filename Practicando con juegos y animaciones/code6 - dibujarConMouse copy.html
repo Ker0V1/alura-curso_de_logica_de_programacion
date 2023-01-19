@@ -1,0 +1,55 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="600"> Lugar para dibujar </canvas>
+
+<script>
+
+    var pantalla = document.querySelector("canvas")
+    var pincel = pantalla.getContext("2d")
+    var colores = ["blue", "red", "green"]
+    var colorActual = 0
+
+    // le damos color al canvas
+
+    pincel.fillStyle = "grey";
+    pincel.fillRect(0,0,600,600);
+
+    // obtenemos la informacion al hacer click en el canvas
+    function obtenerPosicion(e) {
+        // var x = e.pageX // esta posicion tiene en cuenta el offset de la pagina (el offset es la pequeña porcion de pantalla que es ve a la izquierda del cuadrado )
+        // var y = e.pageY 
+
+        var x = e.pageX - pantalla.offsetLeft;
+        var y = e.pageY - pantalla.offsetTop;
+
+        console.log(x + ", " + y)
+    }
+
+    function dibujarCirculo(e) {
+        var x = e.pageX - pantalla.offsetLeft;
+        var y = e.pageY - pantalla.offsetTop;
+
+        pincel.fillStyle = colores[colorActual];
+        pincel.beginPath();
+        pincel.arc(x,y,10,0,360);
+        pincel.fill();
+    }
+
+    function cambiarColorCirculo() {
+        if (colorActual == colores.length - 1) {
+            colorActual = 0;
+        } else {
+            colorActual = colorActual + 1;
+        };
+
+        return false
+    }
+
+    // asociamos la funcion al evento click izquierdo en el canvas
+    pantalla.onclick = dibujarCirculo;
+
+    
+    // asociamos la funcion al evento click derecho en el canvas
+    pantalla.oncontextmenu = cambiarColorCirculo;
+
+</script>

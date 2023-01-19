@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="800">Lugar para dibujar</canvas>
+
+<script>
+
+    function dibujarCuadradoConBorde(inicio, fin, ancho, alto,color = "green", colorLinea = "black") {
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d"); 
+        
+        pincel.fillStyle = color;
+        pincel.strokeStyle = colorLinea; 
+        pincel.fillRect(inicio, fin, ancho, alto);
+        pincel.strokeRect(inicio, fin, ancho, alto);
+    }
+
+    var y = 0;
+    while (y < 800) {
+        
+        var x = 0;
+        
+        while (x < 600) {
+            dibujarCuadradoConBorde(x,y,100,100);
+            
+            x = x + 100
+        }
+        
+        y = y + 100;
+    }
+    
+
+
+</script>

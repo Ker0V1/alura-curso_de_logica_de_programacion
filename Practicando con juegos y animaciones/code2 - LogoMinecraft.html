@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+
+<canvas width="400" height="400"> Lugar para dibujar</canvas>
+
+<script>
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+
+    // cabeza
+    pincel.fillStyle = "green";
+    pincel.fillRect(0,0,400,400);
+
+    // ojo izquerdo
+    pincel.fillStyle = "black";
+    pincel.fillRect(30,60,100,100);
+
+    // ojo derecho
+    pincel.fillStyle = "black";
+    pincel.fillRect(270,60,100,100);
+
+    // boca centro
+    pincel.fillStyle = "black";
+    pincel.fillRect(130,160,140,130);
+
+    // boca izquerda
+    pincel.fillStyle = "black";
+    pincel.fillRect(80,200,55,150);
+
+    // boca derecha
+    pincel.fillStyle = "black";
+    pincel.fillRect(270,200,50,150);
+
+
+
+</script>

@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<h1>
+    triangulo
+</h1>
+
+<script>
+
+    function print(frase, end = "<br>" ) {
+
+        document.write(frase + end)
+
+    }
+
+   var tamaño = parseInt(prompt("indique el tamaño del triangulo"))
+
+   var i = 0
+   while (i < tamaño) { 
+        for (j = 0; j < i; j++) { document.write("\xa0") }
+
+        for (j = 0; j < tamaño - i; j++) { document.write("*") }
+
+        document.write("<br>")
+        i ++
+        
+    }
+    
+</script>

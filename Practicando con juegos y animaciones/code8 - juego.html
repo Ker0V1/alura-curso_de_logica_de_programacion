@@ -1,0 +1,76 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="600"> Lugar para dibujar </canvas>
+
+<script>
+
+    var pantalla = document.querySelector("canvas");
+    var pincel = pantalla.getContext("2d");
+    var radioDiana = 10;
+    var xDiana
+    var yDiana 
+    
+    
+    function dibujarCirculo(x,y,radio,color) {
+        pincel.beginPath();
+
+        pincel.fillStyle = color
+        pincel.arc(x, y, radio, 0, 360);
+        pincel.fill();
+    }
+
+    function limpiarPanatalla() {
+        pincel.clearRect(0,0,600,600);
+        pincel.fillStyle = "lightgray";
+        pincel.fillRect(0,0,600,600);
+    }
+
+    function dibujarDiana(x,y) {
+       
+        // circulo exterior
+        dibujarCirculo(x, y, radioDiana + 20, "red")
+        
+        // circulo intermedio 
+        dibujarCirculo(x, y, radioDiana + 10, "white")
+
+        // circulo interior
+        dibujarCirculo(x, y, radioDiana, "red")
+        
+    }
+
+    
+    function enteroRandom(min,max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+
+    function crearDiana(){
+        xDiana = enteroRandom(30,570)
+        yDiana = enteroRandom(30,570)
+
+        dibujarDiana(xDiana, yDiana)
+
+    }
+
+    function actualizarPantalla() {
+        limpiarPanatalla();
+        crearDiana();
+    }
+
+    function comprobarTiro(e){
+        var x = e.pageX - pantalla.offsetLeft;
+        var y = e.pageY -pantalla.offsetTop;
+    
+        if (x <= xDiana + radioDiana && 
+            x >= xDiana - radioDiana && 
+            y <= yDiana + radioDiana &&
+            y >= yDiana - radioDiana) {
+                alert("Acertaste!")
+        } else {
+            alert("Fallaste!")
+        }
+    }
+
+    pantalla.onclick = comprobarTiro
+    setInterval(actualizarPantalla,1000)
+
+</script>

@@ -1,0 +1,22 @@
+<h1>
+    Calculo de puntos de un equipo de futbol
+</h1>
+
+<script>
+
+    function print(frase) {
+        document.write(frase);
+    }
+
+    var victorias = prompt("Numero de victorias?")
+    var empates = prompt("Numero de empates?")
+
+    //var puntosTotal = victorias*3 + empates // si lo hacemos asi esto se tomara como un string
+                                            // prompt devuelve siempre un string
+
+
+    var puntosTotal = parseInt(victorias)*3+parseInt(empates) // parseInt transforma un string a int
+    
+    print("El total de puntos es: " + puntosTotal)
+
+</script>

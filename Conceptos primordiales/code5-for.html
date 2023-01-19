@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+
+<h1>
+    Tabla de multiplicar
+</h1>
+
+<script>
+
+    function print(frase, end = "<br>" ) {
+
+        document.write(frase + end)
+
+    }
+
+   var numero = parseInt(prompt("Indique el numero de la tabla de multiplicar: "));
+    
+    for (i = 1; i <=10; i++) {
+        print(numero + " x " + i + " = " + i * numero)
+    }
+    
+</script>

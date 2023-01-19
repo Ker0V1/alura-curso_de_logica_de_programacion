@@ -1,0 +1,62 @@
+<meta charset="UTF-8">
+
+<h1>
+    Estoy pensando en 3 numeros del 0 al 10 puedes adivinar alguno de ellos?
+</h1>
+
+<input/>
+<button> Acerte? </button>
+
+<script>
+    
+    var input = document.querySelector("input"); // obtiene el objeto input
+   
+    function verificar() {
+        var n = 3;
+        var nroSecretos = [];
+        
+        var i = 0;
+        var intento;
+        var repetido;
+
+        while (i < n) {
+            intento = Math.floor(Math.random()*11)
+            repetido = false
+            for (j = 0; j < nroSecretos.length; j++) {
+                if (intento == nroSecretos[j]){
+                    repetido = true
+                    break
+                }
+            }
+
+            if (repetido == false) {
+                nroSecretos.push(intento); // añadimos un elemento al final del array nroSecretos
+                i++
+            }
+            
+        }        
+        var intento = parseInt(input.value); // obtenemos el valor que esta contenido en el objeto input
+        
+        var encontrado = false;
+        for (i = 0; i < nroSecretos.length; i++) {
+            if (nroSecretos[i] == intento) {
+                alert("yei, adivinaste");
+                encontrado = true;
+                break
+            }
+        }
+        
+        if (encontrado == false) { alert("jejeje, no acertaste, prueba otra vez") }
+
+        input.value = ""; // seteamos el valor que estara en el input a un string vacio
+        input.focus(); // le decimos a JS que el cursos debe estar activo en el input
+    }
+    
+    input.focus(); // le decimos a JS que el cursor debe estar activo en el input
+    
+    var button = document.querySelector("button"); // obtenemos el objeto button
+    
+    button.onclick = verificar; // si hacemos click en el boton llamamos a la funcion verificar
+                                // fijate que pasamos la funcion como tal, no hacemos una llamada a funcion
+
+</script>
